@@ -3,7 +3,7 @@
 <table>
   <tr>
     <td width="50%">
-      Repository of the Paper "Multidimensional Byte Pair Encoding: Shortened Sequences for Improved Visual Data Generation".<br/>
+      Repository of the Paper <a href=https://arxiv.org/abs/2411.10281>"Multidimensional Byte Pair Encoding: Shortened Sequences for Improved Visual Data Generation" (https://arxiv.org/abs/2411.10281)</a>.<br/>
 <br/>
 Our algorithm compresses visual data in order to make tasks like generation more efficient: Shorter sequences, even if they are from a larger vocabulary, are easier to handle for deep learning architectures like transformers. The images show representative examples after the same training time, with training on shortened sequences (right) producing better results faster.<br/>
 <br/>
