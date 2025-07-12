@@ -1,0 +1,162 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HTML Cheat Sheet
+%
+% Edited by Michelle Cristina de Sousa Baltazar
+% Adapted by Philip Trettner
+%
+% baposter Landscape Poster
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License: LaTeX Project Public License 1.3c
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------
+
+\documentclass[landscape,a0paper,fontscale=0.285]{baposter} % Adjust the font scale/size here
+\title{ctracer library cheat sheet}
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx} % Required for including images
+\graphicspath{{imgs/}} % Directory in which figures are stored
+
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tabu}
+
+\usepackage{color}
+\usepackage{fancyvrb}
+
+\usepackage{mathtools}
+\usepackage{amsmath} % For typesetting math
+\usepackage{amssymb} % Adds new symbols to be used in math mode
+
+\usepackage{booktabs} % Top and bottom rules for tables
+\usepackage{enumitem} % Used to reduce itemize/enumerate spacing
+\usepackage{palatino} % Use the Palatino font
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+
+\usepackage{multicol} % Required for multiple columns
+\setlength{\columnsep}{1.5em} % Slightly increase the space between columns
+\setlength{\columnseprule}{0mm} % No horizontal rule between columns
+
+\usepackage{tikz} % Required for flow chart
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes,arrows} % Tikz libraries required for the flow chart in the template
+
+\newcommand{\compresslist}{ % Define a command to reduce spacing within itemize/enumerate environments, this is used right after \begin{itemize} or \begin{enumerate}
+\setlength{\itemsep}{1pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+}
+\definecolor{primaryColor}{HTML}{512DA8} % Defines the color used for content box headers
+\definecolor{boxColor}{HTML}{b49aff}     % Defines the color used for in \colorbox
+
+\newcommand{\sectionbox}[1]{\colorbox{boxColor}{\makebox[\textwidth-2\fboxsep][l]{\bf #1}}}
+
+\input{style.tex} % syntax highlighting style
+
+\begin{document}
+
+\begin{poster}
+{
+    columns=4,
+    headerborder=closed, % Adds a border around the header of content boxes
+    colspacing=0.8em, % Column spacing
+    bgColorOne=white, % Background color for the gradient on the left side of the poster
+    bgColorTwo=white, % Background color for the gradient on the right side of the poster
+    borderColor=primaryColor, % Border color
+    headerColorOne=black, % Background color for the header in the content boxes (left side)
+    headerColorTwo=primaryColor, % Background color for the header in the content boxes (right side)
+    headerFontColor=white, % Text color for the header text in the content boxes
+    boxColorOne=white, % Background color of the content boxes
+    textborder=rectangle, % Format of the border around content boxes, can be: none, bars, coils, triangles, rectangle, rounded, roundedsmall, roundedright or faded
+    eyecatcher=true, % Set to false for ignoring the left logo in the title and move the title left
+    headerheight=0.1\textheight, % Height of the header
+    headershape=smallrounded, % Specify the rounded corner in the content box headers, can be: rectangle, small-rounded, roundedright, roundedleft or rounded
+    headerfont=\Large\bf\textsc, % Large, bold and sans serif font in the headers of content boxes
+    %textfont={\setlength{\parindent}{1.5em}}, % Uncomment for paragraph indentation
+    linewidth=2pt % Width of the border lines around content boxes
+}
+%----------------------------------------------------------------
+%	Title
+%----------------------------------------------------------------
+{\bf\textsc{ctracer Cheat Sheet}\vspace{0.5em}} % Poster title
+{\textsc{\{ C T R A C E R \ \ \ \ \ C h e a t \ \ \ \ \ S h e e t\} \hspace{12pt}} \vspace{0.2cm}}
+{\texttt{https://graphics.rwth-aachen.de:9000/ptrettner/ctracer}}
+
+% Usage:
+% \headerbox{Box Name}{name=boxname,column=0,row=0}{ ... }
+% \headerbox{foo}{name=bar,column=1,row=0,bottomaligned=boxname}{ ... }
+%
+% for code: use http://pygments.org/
+%   pygmentize -f latex file.ext
+
+%------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------
+\begin{posterbox}[name=gettingstarted,column=0]{Getting Started}
+
+    \texttt{ctracer} is a C++ library for high-performance profiling and benchmarking.
+
+    ~
+    
+    \sectionbox{CMake}
+    \input{code/cmake.cmake.tex}
+
+    ~
+
+    \sectionbox{Headers}
+    \input{code/headers.cc.tex}
+    
+    ~
+
+    \sectionbox{Usage}
+    \input{code/usage.cc.tex}
+
+    Each \texttt{TRACE()} costs about $70$--$100$ cycles in total.
+
+\end{posterbox}
+
+%------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------
+\begin{posterbox}[name=trace,column=0,below=gettingstarted]{Basics}
+
+    \sectionbox{Trace}
+    
+    \input{code/trace.cc.tex}
+
+    \texttt{TRACE}s are RAII objects that profile a scope.
+    They record the current CPU cycles at start and end and also on which core they were executed.
+    The result is recorded into a \texttt{ct::scope} and can be analyzed later.
+
+    ~
+
+    \sectionbox{Current Cycles}
+
+    \input{code/cycles.cc.tex}
+
+    Returns the current number of CPU cycles.
+
+    ~
+
+    \sectionbox{Cycler}
+
+    \input{code/cycler.cc.tex}
+
+    The \texttt{ct::cycler} is a small utility for measuring the number of elapsed cycles.
+
+\end{posterbox}
+
+%------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------
+\begin{posterbox}[column=1]{Scopes}
+
+    By default, all \texttt{TRACE}s are collected into a global thread-local scope.
+
+\end{posterbox}
+    
+\end{poster}
+\end{document}

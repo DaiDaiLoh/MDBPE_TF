@@ -1,0 +1,42 @@
+[submodule "extern/clean-core"]
+	path = extern/clean-core
+	url = https://github.com/project-arcana/clean-core.git
+[submodule "extern/typed-geometry"]
+	path = extern/typed-geometry
+	url = https://github.com/project-arcana/typed-geometry.git
+[submodule "extern/ctracer"]
+	path = extern/ctracer
+	url = https://github.com/project-arcana/ctracer.git
+[submodule "extern/reflector"]
+	path = extern/reflector
+	url = https://github.com/project-arcana/reflector.git
+[submodule "extern/rich-log"]
+	path = extern/rich-log
+	url = https://@github.com/project-arcana/rich-log.git
+[submodule "extern/glfw"]
+	path = extern/glfw
+	url = https://github.com/glfw/glfw.git
+[submodule "extern/glow"]
+	path = extern/glow
+	url = https://www.graphics.rwth-aachen.de:9000/Glow/glow.git
+[submodule "extern/imgui"]
+	path = extern/imgui
+	url = https://www.graphics.rwth-aachen.de:9000/ptrettner/imgui-lean.git
+[submodule "extern/glow-extras"]
+	path = extern/glow-extras
+	url = https://www.graphics.rwth-aachen.de:9000/Glow/glow-extras.git
+[submodule "extern/nexus"]
+	path = extern/nexus
+	url = https://github.com/project-arcana/nexus.git
+[submodule "extern/babel-serializer"]
+	path = extern/babel-serializer
+	url = https://github.com/project-arcana/babel-serializer.git
+[submodule "extern/clean-ranges"]
+	path = extern/clean-ranges
+	url = https://github.com/project-arcana/clean-ranges.git
+[submodule "extern/image"]
+	path = extern/image
+	url = git@gitlab.vci.rwth-aachen.de:jnehringwirxel/image.git
+[submodule "extern/cpp-utils"]
+	path = extern/cpp-utils
+	url = git@gitlab.vci.rwth-aachen.de:jnehringwirxel/cpp-utils.git

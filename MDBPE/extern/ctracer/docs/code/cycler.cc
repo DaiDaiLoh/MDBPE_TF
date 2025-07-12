@@ -1,0 +1,3 @@
+ct::cycler c;
+// do something ...
+std::cout << c.elapsed_cycles() << std::endl;
